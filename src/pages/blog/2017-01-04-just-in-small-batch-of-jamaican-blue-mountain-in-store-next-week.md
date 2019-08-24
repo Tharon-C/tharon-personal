@@ -1,34 +1,69 @@
 ---
 templateKey: 'blog-post'
-title: 'Just in: small batch of Jamaican Blue Mountain in store next week'
+title: Death by Inconsistancy
 date: 2017-01-04T15:04:10.000Z
 featuredpost: true
 description: >-
-  We’re proud to announce that we’ll be offering a small batch of Jamaica Blue
-  Mountain coffee beans in our store next week.
+  How inconcistency was ruining our product and what we did about it.
 tags:
-  - jamaica
-  - green beans
-  - flavor
-  - tasting
+  - work
 ---
 
-We expect the shipment of a limited quantity of green beans next Monday. We’ll be offering the roasted beans from Tuesday, but quantities are limited, so be quick.
+Inconsistency can lead to a general dissatisfaction and poor perception of a product, brand or company as a whole.
 
-Blue Mountain Peak is the highest mountain in Jamaica and one of the highest peaks in the Caribbean at 7,402 ft. It is the home of Blue Mountain coffee and their famous tours. It is located on the border of the Portland and Saint Thomas parishes of Jamaica.
+At CyVerse, like most organizations, we had issues with consistency that we wanted improve on.
 
-## A little history
+After evaluating the causes and solutions, we decided to adopt a standard component library, a design system or pattern library, and style guide. It happens that these three concerns work nicely together to form a single source of truth, CyVerse-UI.
 
-The Blue Mountains are considered by many to be a hiker's and camper's paradise. The traditional Blue Mountain trek is a 7-mile hike to the peak and consists of a 3,000-foot increase in elevation. Jamaicans prefer to reach the peak at sunrise, thus the 3–4 hour hike is usually undertaken in darkness. Since the sky is usually very clear in the mornings, Cuba can be seen in the distance.
+## Inconsistency
 
->Some of the plants found on the Blue Mountain cannot be found anywhere else in the world and they are often of a dwarfed sort.
+Inconsistency, whether color, typography, user experience, branding, etc. might be the the most damaging issue an application can have.
 
-This is mainly due to the cold climate which inhibits growth. The small coffee farming communities of Claverty Cottage and Hagley Gap are located near the peak.
+We naturally seek out order and predictability and recognize rules. This helps us conserve mental energy by assuming most of the information around us, only focusing on what we need to.
 
-## What you need to know before trying
+As a product, when we break our own rules, we are pulling the rug out from under the user, making them have to rethink the whole system. Imagine turning to set a glass on a table to find the table has vanished. Even if that is the only detail changed we would still have to look about the room reconsidering everything in it.
 
-Jamaican Blue Mountain Coffee or Jamaica Blue Mountain Coffee is a classification of coffee grown in the Blue Mountains of Jamaica. The best lots of Blue Mountain coffee are noted for their mild flavor and lack of bitterness. Over the past few decades, this coffee has developed a reputation that has made it one of the most expensive and sought-after coffees in the world. Over 80% of all Jamaican Blue Mountain Coffee is exported to Japan. In addition to its use for brewed coffee, the beans are the flavor base of Tia Maria coffee liqueur.
+Inconsistency leads to a lack of user confidence. If confused, users can become frustrated or anxious. A perception grows that the product is of poor quality and undependable.
 
-Jamaican Blue Mountain Coffee is a globally protected certification mark, meaning only coffee certified by the Coffee Industry Board of Jamaica can be labeled as such. It comes from a recognized growing region in the Blue Mountain region of Jamaica, and its cultivation is monitored by the Coffee Industry Board of Jamaica.
+## Contributing Factors
 
-The Blue Mountains are generally located between Kingston to the south and Port Antonio to the north. Rising 7,402 ft, they are some of the highest mountains in the Caribbean. The climate of the region is cool and misty with high rainfall. The soil is rich, with excellent drainage. This combination of climate and soil is considered ideal for coffee.
+### Not enough reuse of code
+
+Someone working on a new feature finds a view that has the UI they want to use and copy pastes it into the new view.
+
+"Copy pasta" when it comes to the UI, introduces maintenance problems and visual inconsistency as changes are made to views.
+
+Since the same visual patterns and experience is copied in many places, an update to one instance requires hunting for every other instance, else you have inconsistency.
+
+Under a deadline and limited resources these inconsistencies are left to grow.
+
+### No formalized design system
+
+Even with the best intentions if more than one person is making design decisions without a system you will have inconsistencies. Even with one designer, over time styles and moods will change and memories fade. Digging through similar features for patterns to copy only goes so far. What if for example, there are two features that have slightly different ways of adding Tags? Which one do we copy? Or, do we have a better idea and use that instead?
+
+### Teams are siloed
+
+With different CyVerse teams working on their own products not only do these products suffer from inconsistency, possibly worse is how inconsistent our products are from one another.
+
+## Solutions to inconsistency
+
+#### A component library
+
+A library of reusable components allow us to have a single source of truth for a UI element or pattern. This gives us better maintainability and can enforce design consistency.
+
+We want to remove the friction for writing and using reusable components. Foster a culture and architecture that allows for, promotes and even enforces its use and contribution.
+
+An official site documenting reusable components facilitate this. A developer can browse the collection before writing anything new. If what they need doesn't exist yet or isn't flexible they can contribute to the collection making it better. Designers can oversee the collection for design quality and consistency.
+
+#### A pattern library
+A pattern library keeps things more consistent by breaking features into smaller reusable patterns. Rather than look at our feature as a whole we can think about it in terms of the smaller reusable interactions or patterns it is composed of.
+
+A pattern library maps perfectly to our collection of reusable components. We can design and build our applications around a component / pattern library as a single source of truth, consolidating development and design assets.
+
+#### A centralized library
+
+By applying a pattern / component library to the organization as a whole we get closer to creating a consistent ecosystem. An environment where the user can move from feature to feature and product to product feeling comfortable in familiar surroundings. The user can depend on rules, make assumptions and conserve mental energy.
+
+## CyVerse-UI
+
+Enter CyVerse-UI! A standardized set of reusable components that are available to all of the CyVerse ecosystem. We want a design system that can be used to design new features that brings consistency to the look and feel, the CyVerse brand and the user experience.

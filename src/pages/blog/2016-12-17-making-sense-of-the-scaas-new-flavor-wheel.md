@@ -1,33 +1,48 @@
 ---
 templateKey: blog-post
-title: Making sense of the SCAA’s new Flavor Wheel
-date: 2016-12-17T15:04:10.000Z
+title: Design Pipeline
+date: 2018-12-17T15:04:10.000Z
 featuredpost: false
 featuredimage: /img/flavor_wheel.jpg
-description: The Coffee Taster’s Flavor Wheel, the official resource used by coffee tasters, has been revised for the first time this year.
+description: How and why we developed a design pipeline at Cyverse
 tags:
-  - flavor
-  - tasting
+  - work
 ---
-![flavor wheel](/img/flavor_wheel.jpg)
+Our product evolved from one developer's proof of concept to a few fast moving developers getting it functional enough to present to a hand full of users. Eventually it was a funded project and had been redesigned and rebuilt in React but the person who had made the original designs left and it's break neck development cycle had become part of the culture.
 
-The SCAA updated the wheel to reflect the finer nuances needed to describe flavors more precisely. The new descriptions are more detailed and hence allow cuppers to distinguish between more flavors.
+New features were built by first reviewing requirements with the project manager, then implemented, getting the functionality to work with just enough UI to get input and display a result. Only later was a feature fleshed out and styled to meet production quality. Although the user experience was discussed and some research on existing patterns was done much of the design was left to work out as the feature progressed.
 
-While this is going to be a big change for professional coffee tasters, it means a lot to you as a consumer as well. We’ll explain how the wheel came to be, how pros use it and what the flavors actually mean.
+Recognizing that a lack of formalized upfront design was introducing issues with the user experience and inconsistencies in design, we set out to integrate a design step before writing code less we continue to pile on "design debt"
 
-## What the updates mean to you
+## Why design before writing code?
 
-The Specialty Coffee Association of America (SCAA), founded in 1982, is a non-profit trade organization for the specialty coffee industry. With members located in more than 40 countries, SCAA represents every segment of the specialty coffee industry, including:
+If the design is an afterthought, the design goal becomes more about "making it look good" and is superficial. More than just polish, a design should be the structure from which to build on. Once code is written however, there is friction to changing it, so the mentality becomes more about polishing what is there. This leads to a compromise in user experience and design inconsistencies as each developer makes independent choices steered by unconscious decisions when first stubbing out the UI.
 
-* producers
-* roasters
-* importers/exporters
-* retailers
-* manufacturers
-* baristas
+### Design Debt
 
-For over 30 years, SCAA has been dedicated to creating a vibrant specialty coffee community by recognizing, developing and promoting specialty coffee. SCAA sets and maintains quality standards for the industry, conducts market research, and provides education, training, resources, and business services for its members.
+It is difficult to correct these issues as often they require us to rethink the whole feature. The views then often need to be rebuilt. Since design patterns form passively thus they aren't necessarily good patterns, the user has already learned them however so changes have to be rolled out in a way that minimizes confusion. We started calling this situation "design debt" and understood that designing before committing to code was the only way to mitigate it.
 
-Coffee cupping, or coffee tasting, is the practice of observing the tastes and aromas of brewed coffee. It is a professional practice but can be done informally by anyone or by professionals known as "Q Graders". A standard coffee cupping procedure involves deeply sniffing the coffee, then loudly slurping the coffee so it spreads to the back of the tongue.
+## Fitting design into an existing workflow
 
-The coffee taster attempts to measure aspects of the coffee's taste, specifically the body (the texture or mouthfeel, such as oiliness), sweetness, acidity (a sharp and tangy feeling, like when biting into an orange), flavour (the characters in the cup), and aftertaste. Since coffee beans embody telltale flavours from the region where they were grown, cuppers may attempt to identify the coffee's origin.
+As we already had a well running productive team we wanted to integrate a design step into our existing workflow. We didn't have a designer and hiring one wasn't on the table. We were used to working independently and having ownership over features end to end. We used Jira to track and assign work and worked around six week sprints.
+
+We decided to establish a "design pipeline" in one sprint and implement it in the next.
+
+## Design pipeline
+
+Understanding that design is an iterative process with many steps and continual feedback. We wanted a workflow that could serve as a pipeline to feed feature requests or existing features that need improvement into one end. And have a design to hand over to be implemented come out the other. We called this our "design pipeline".
+
+### Requirements Doc
+
+A good focused design can only be achieved with good focused requirements.
+
+### The stubby pencil
+
+Our pipeline needs a single point at it's entrance and a single point at it's exit. The middle however expands into many variants and possibilities as ideas are explored and ruled out. On the white board this looks like a stubby pencil and became the model for our pipeline.
+
+#### Expanding
+
+#### Iteration
+
+#### Focusing
+
