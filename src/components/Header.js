@@ -19,6 +19,10 @@ const Nav = styled.nav`
   display: flex;
   justify-content: space-between;
 `;
+const GitHubLink = styled.a`
+  text-decoration: none;
+  width: 24px;
+`;
 
 const Header = () => (
   <Nav style={{padding: 16}}>
@@ -35,16 +39,13 @@ const Header = () => (
         }
       </div>
     </Identety>
-    <a
-      className="navbar-item"
-      href="https://github.com/netlify-templates/gatsby-starter-netlify-cms"
+    <GitHubLink
+      href="https://github.com/tharon-c/tharon-personal"
       target="_blank"
       rel="noopener noreferrer"
     >
-      <span className="icon">
-        <img src={github} alt="Github" />
-      </span>
-    </a>
+      <img src={github} alt="Github" />
+    </GitHubLink>
   </Nav>
 )
 

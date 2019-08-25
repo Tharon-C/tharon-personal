@@ -14,14 +14,14 @@ export const IndexPageTemplate = () => (
           zIndex: 999,
           width: "75%",
           position: 'fixed',
-          bottom: '10vh',
+          bottom: '33vh',
           left: 0,
           right: 0,
           margin: "auto",
           minWidth: '400px',
         }}
       />
-      <Clouds style={{position: "fixed", top: "100px", left: 0, zIndex: -1}}/>
+      <Clouds style={{position: "fixed", top: "100px", left: 0 }}/>
       <Cabin styleWrapper={{ position: "fixed", top: "200px", maxWidth: '800px', width: '100%', right: 0, left: 0, margin: 'auto' }} />
     </Main>
   )
