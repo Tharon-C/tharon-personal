@@ -1,30 +1,21 @@
 import React from 'react'
-import Link from 'gatsby-link'
+import Button from './Button'
+import styled from 'styled-components'
 
-const linkStyle = {
-  background: 'rgba(298,298,298,.7)',
-  borderRadius: '24px',
-  fontSize: '24px',
-  padding: '10px 20px',
-  textDecoration: 'none',
-  display: 'inline-block',
-  color: 'black',
-}
+const NavWrapper = styled.nav`
+  min-width: 400px;
+  display: flex;
+  justify-content: space-around;
+`
 
-const ArchiveLinks = ({ style, includeAll }) => {
+const ArchiveLinks = ({ style }) => {
   return (
-    <nav
-      style={{
-        ...style,
-        minWidth: '400px',
-        display: 'flex',
-        justifyContent: 'space-around',
-      }}
-    >
-      <Link to="/blog" style={linkStyle}>
+    <NavWrapper style={style}>
+      <Button large variant="primary" to="/blog" >
         Enter Site
-      </Link>
-    </nav>
+      </Button>
+    </NavWrapper>
   )
 }
+
 export default ArchiveLinks

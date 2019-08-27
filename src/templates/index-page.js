@@ -42,7 +42,7 @@ const IndexPage = ({ data }) => {
   const { frontmatter } = data.markdownRemark
 
   return (
-    <Layout background="#d1f2ff">
+    <Layout backgroundColor="sky.day">
       <IndexPageTemplate
         image={frontmatter.image}
         title={frontmatter.title}

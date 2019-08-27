@@ -3,7 +3,6 @@ templateKey: blog-post
 title: Hello Gatsby
 date: 2018-01-04T15:04:10.000Z
 featuredpost: false
-featuredimage: /img/chemex.jpg
 description: My first blog post and why I've gone static
 tags:
   - learning

@@ -3,7 +3,6 @@ templateKey: blog-post
 title: Design Pipeline
 date: 2018-12-17T15:04:10.000Z
 featuredpost: false
-featuredimage: /img/flavor_wheel.jpg
 description: How and why we developed a design pipeline at Cyverse
 tags:
   - work
