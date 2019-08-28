@@ -3,7 +3,6 @@ import { Helmet } from 'react-helmet'
 import styled, { ThemeProvider, createGlobalStyle } from 'styled-components'
 import { color } from 'styled-system'
 import Header from '../components/Header'
-import Content from '../components/Content'
 import theme from '../design-system/theme'
 import useSiteMetadata from './SiteMetadata'
 import { withPrefix } from "gatsby"
