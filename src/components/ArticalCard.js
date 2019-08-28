@@ -29,7 +29,7 @@ const ArticalCard = ({post, ...rest}) => (
         <Link
           to={post.fields.slug}
         >
-          <Text fontSize={5} mb={1}>
+          <Text fontSize={5} mb={1} color="black">
             {post.frontmatter.title}
           </Text>
         </Link>
