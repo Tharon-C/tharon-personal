@@ -27,19 +27,17 @@ export const BlogPostTemplate = ({
       <Banner />
       <Main className="section">
         {helmet || ''}
-        <Box pt="5">
-          <Text as="h1" fontSize={6} mb={2}>
-            {title}
-          </Text>
-          <Text fontSize={4} mb={2}>{description}</Text>
-          <Text fontSize={1} mb={2} color="grey6">{date}</Text>
-          {tags && tags.length ? (
-            <Box mb="4">
-              <TagList tags={tags} />
-            </Box>
-          ) : null}
-          <PostContent content={content} />
-        </Box>
+        <Text as="h1" fontSize={6} mb={2}>
+          {title}
+        </Text>
+        <Text fontSize={4} mb={2}>{description}</Text>
+        <Text fontSize={1} mb={2} color="grey6">{date}</Text>
+        {tags && tags.length ? (
+          <Box mb="4">
+            <TagList tags={tags} />
+          </Box>
+        ) : null}
+        <PostContent content={content} />
       </Main>
     </>
   )

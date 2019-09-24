@@ -26,7 +26,6 @@ class TagRoute extends React.Component {
           flexWrap='wrap'
           maxWidth='1200px'
           m="auto"
-          pt={5}
         >
           <Text
             as="h1"

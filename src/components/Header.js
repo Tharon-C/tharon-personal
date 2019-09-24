@@ -18,7 +18,7 @@ const Identety = styled(Link)`
 const Nav = styled.nav`
   width: 100%;
   display: flex;
-  padding: 0 63px;
+  padding: 20px 63px;
   justify-content: space-between;
 `;
 const NavLink = styled(Link)`
@@ -51,7 +51,7 @@ const Header = ({isMain}) => (
         }
       </div>
     </Identety>
-    <Flex alignItems='center' py="3">
+    <Flex alignItems='center'>
       <NavLink to='./blog'>
         Articles
       </NavLink>

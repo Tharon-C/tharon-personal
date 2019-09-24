@@ -2,7 +2,6 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
-import Box from '../components/Box'
 import Banner from '../components/Banner'
 import Layout from '../components/Layout'
 import Main from '../components/Main'
@@ -23,12 +22,10 @@ export const AboutPageTemplate = ({
       <Banner />
       <Main className="section">
         {helmet || ''}
-        <Box pt="5">
           <Text as="h1" fontSize={6} mb={2}>
             {title}
           </Text>
           <PostContent content={content} />
-        </Box>
       </Main>
     </>
   )

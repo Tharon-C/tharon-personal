@@ -24,18 +24,30 @@ const TagsPage = ({
     flexWrap='wrap'
     maxWidth='1200px'
     m="auto"
-    pt={5}
   >
     <Text as="h1" fontSize="4" pt="4">Tags</Text>
     <Box as="ul" p="0">
       {group.map(tag => (
         <Box as="li" key={tag.fieldValue} py="1" style={{listStyle: "none"}}>
           <Text
+            color="black"
             as={Link}
             fontSize={4}
             to={`/tags/${kebabCase(tag.fieldValue)}/`}
           >
-            {tag.fieldValue} ({tag.totalCount})
+            {tag.fieldValue}
+            <Box
+              display="inline-block"
+              borderRadius={999}
+              color="white"
+              ml={1}
+              p=" 4px 8px"
+              bg="secondary"
+            >
+              <Text fontSize={2}>
+                {tag.totalCount}
+              </Text>
+            </Box>
           </Text>
         </Box>
       ))}
