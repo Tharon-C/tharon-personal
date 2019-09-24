@@ -1,63 +1,87 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
+import Box from '../components/Box'
+import Banner from '../components/Banner'
 import Layout from '../components/Layout'
+import Main from '../components/Main'
+import Text from '../components/Text'
 import Content, { HTMLContent } from '../components/Content'
 
-export const AboutPageTemplate = ({ title, content, contentComponent }) => {
-  const PageContent = contentComponent || Content
+
+export const AboutPageTemplate = ({
+  content,
+  contentComponent,
+  title,
+  helmet
+}) => {
+  const PostContent = contentComponent || Content
 
   return (
-    <section className="section section--gradient">
-      <div className="container">
-        <div className="columns">
-          <div className="column is-10 is-offset-1">
-            <div className="section">
-              <h2 className="title is-size-3 has-text-weight-bold is-bold-light">
-                {title}
-              </h2>
-              <PageContent className="content" content={content} />
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    <>
+      <Banner />
+      <Main className="section">
+        {helmet || ''}
+        <Box pt="5">
+          <Text as="h1" fontSize={6} mb={2}>
+            {title}
+          </Text>
+          <PostContent content={content} />
+        </Box>
+      </Main>
+    </>
   )
 }
 
 AboutPageTemplate.propTypes = {
-  title: PropTypes.string.isRequired,
-  content: PropTypes.string,
+  content: PropTypes.node.isRequired,
   contentComponent: PropTypes.func,
+  description: PropTypes.string,
+  title: PropTypes.string,
+  helmet: PropTypes.object,
 }
 
-const AboutPage = ({ data }) => {
+const About = ({ data }) => {
   const { markdownRemark: post } = data
+  const { title, featuredimage } = post.frontmatter
 
   return (
     <Layout>
       <AboutPageTemplate
-        contentComponent={HTMLContent}
-        title={post.frontmatter.title}
         content={post.html}
+        contentComponent={HTMLContent}
+        featuredimage={featuredimage}
+        helmet={
+          <Helmet titleTemplate="%s | Blog">
+            <title>{`${title}`}</title>
+            <meta
+              name="description"
+              content="About me"
+            />
+          </Helmet>
+        }
+        title={title}
       />
     </Layout>
   )
 }
 
-AboutPage.propTypes = {
-  data: PropTypes.object.isRequired,
+About.propTypes = {
+  data: PropTypes.shape({
+    markdownRemark: PropTypes.object,
+  }),
 }
 
-export default AboutPage
+export default About
 
 export const aboutPageQuery = graphql`
-  query AboutPage($id: String!) {
-    markdownRemark(id: { eq: $id }) {
-      html
-      frontmatter {
-        title
-      }
+query AboutPage($id: String!) {
+  markdownRemark(id: { eq: $id }) {
+    html
+    frontmatter {
+      title
     }
   }
+}
 `

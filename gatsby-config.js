@@ -53,12 +53,13 @@ module.exports = {
               maxWidth: 2048,
             },
           },
+          'gatsby-remark-prismjs',
           {
             resolve: 'gatsby-remark-copy-linked-files',
             options: {
               destinationDir: 'static',
             },
-          },
+          }
         ],
       },
     },

@@ -1,12 +1,13 @@
 ---
 templateKey: 'blog-post'
 title: Death by Inconsistancy
-date: 2017-01-04T15:04:10.000Z
+date: 2018-01-04T15:04:10.000Z
 featuredpost: true
 description: >-
   How inconcistency was ruining our product and what we did about it.
 tags:
   - work
+  - design
 ---
 
 Inconsistency can lead to a general dissatisfaction and poor perception of a product, brand or company as a whole.

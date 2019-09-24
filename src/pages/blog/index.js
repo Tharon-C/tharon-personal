@@ -1,23 +1,17 @@
 import React from 'react'
-import Text from '../../components/Text'
+import Banner from '../../components/Banner'
 import Layout from '../../components/Layout'
 import BlogRoll from '../../components/BlogRoll'
+import Box from '../../components/Box'
 
 export default class BlogIndexPage extends React.Component {
   render() {
     return (
-      <Layout>
-          <Text
-            as="h1"
-            fontSize={5}
-            textAlign="center"
-            my={3}
-          >
-            Latest Stories
-          </Text>
-        <section>
+      <Layout {...this.props}>
+        <Banner />
+        <Box mt={5} >
           <BlogRoll />
-        </section>
+        </Box>
       </Layout>
     )
   }

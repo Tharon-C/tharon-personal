@@ -35,7 +35,7 @@ const GlobalStyle = createGlobalStyle`
   .Content {
     line-height: 1.7;
     p {
-      font-size: 16px;
+      font-size: 18px;
       margin-bottom: 32px;
       max-width: 600px;
     }
@@ -59,8 +59,9 @@ const Wrapper = styled.div`
   min-height: 100vh;
   ${color}
 `;
-const TemplateWrapper = ({ children, ...rest }) => {
+const TemplateWrapper = ({ children, isMain, ...rest }) => {
   const { title, description } = useSiteMetadata()
+
   return (
     <ThemeProvider theme={theme}>
     <Wrapper { ...rest }>
@@ -100,7 +101,7 @@ const TemplateWrapper = ({ children, ...rest }) => {
         <meta property="og:url" content="/" />
         <meta property="og:image" content={`${withPrefix("/")}img/og-image.jpg`} />
       </Helmet>
-      <Header />
+      <Header isMain={isMain}/>
       <div>{children}</div>
     </Wrapper>
     </ThemeProvider>

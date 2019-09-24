@@ -1,18 +1,19 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { space } from 'styled-system'
+import { space, layout } from 'styled-system'
 import ImgNoStyles from 'gatsby-image'
 
 const Img = styled(ImgNoStyles)`
   ${space}
+  ${layout}
 `
 const PreviewCompatibleImage = ({ imageInfo, ...rest }) => {
   const { alt = '', childImageSharp, image } = imageInfo
 
   if (!!image && !!image.childImageSharp) {
     return (
-      <Img { ...rest }fluid={image.childImageSharp.fluid} alt={alt} />
+      <Img { ...rest } fluid={image.childImageSharp.fluid} alt={alt} />
     )
   }
 

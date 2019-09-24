@@ -3,6 +3,10 @@ import { kebabCase } from 'lodash'
 import Helmet from 'react-helmet'
 import { Link, graphql } from 'gatsby'
 import Layout from '../../components/Layout'
+import Banner from '../../components/Banner'
+import Box from '../../components/Box'
+import Text from '../../components/Text'
+
 
 const TagsPage = ({
   data: {
@@ -12,30 +16,32 @@ const TagsPage = ({
     },
   },
 }) => (
-  <Layout>
-    <section className="section">
-      <Helmet title={`Tags | ${title}`} />
-      <div className="container content">
-        <div className="columns">
-          <div
-            className="column is-10 is-offset-1"
-            style={{ marginBottom: '6rem' }}
+<Layout>
+  <Helmet title={`Tags | ${title}`} />
+  <Banner />
+  <Box
+    as="section"
+    flexWrap='wrap'
+    maxWidth='1200px'
+    m="auto"
+    pt={5}
+  >
+    <Text as="h1" fontSize="4" pt="4">Tags</Text>
+    <Box as="ul" p="0">
+      {group.map(tag => (
+        <Box as="li" key={tag.fieldValue} py="1" style={{listStyle: "none"}}>
+          <Text
+            as={Link}
+            fontSize={4}
+            to={`/tags/${kebabCase(tag.fieldValue)}/`}
           >
-            <h1 className="title is-size-2 is-bold-light">Tags</h1>
-            <ul className="taglist">
-              {group.map(tag => (
-                <li key={tag.fieldValue}>
-                  <Link to={`/tags/${kebabCase(tag.fieldValue)}/`}>
-                    {tag.fieldValue} ({tag.totalCount})
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-  </Layout>
+            {tag.fieldValue} ({tag.totalCount})
+          </Text>
+        </Box>
+      ))}
+    </Box>
+  </Box>
+</Layout>
 )
 
 export default TagsPage

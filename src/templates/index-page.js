@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
+import 'prismjs/themes/prism-tomorrow.css'
 import Cabin from '../components/graphics/Cabin'
 import Main from '../components/Main'
 import ArchiveLinks from "../components/ArchiveLinks"
@@ -42,7 +43,7 @@ const IndexPage = ({ data }) => {
   const { frontmatter } = data.markdownRemark
 
   return (
-    <Layout backgroundColor="sky.day">
+    <Layout isMain backgroundColor="sky.day">
       <IndexPageTemplate
         image={frontmatter.image}
         title={frontmatter.title}

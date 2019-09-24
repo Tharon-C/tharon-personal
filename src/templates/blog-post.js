@@ -1,46 +1,47 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { kebabCase } from 'lodash'
 import Helmet from 'react-helmet'
-import { graphql, Link } from 'gatsby'
+import { graphql } from 'gatsby'
+import Box from '../components/Box'
+import Banner from '../components/Banner'
 import Layout from '../components/Layout'
 import Main from '../components/Main'
 import Text from '../components/Text'
+import TagList from '../components/TagList'
 import Content, { HTMLContent } from '../components/Content'
+
 
 export const BlogPostTemplate = ({
   content,
   contentComponent,
   description,
+  date,
   tags,
   title,
-  helmet,
+  helmet
 }) => {
   const PostContent = contentComponent || Content
 
   return (
-    <Main className="section">
-      {helmet || ''}
-      <div>
-        <Text as="h1" fontSize={6} mb={2}>
-          {title}
-        </Text>
-        <Text fontSize={3} mb={3}>{description}</Text>
-        <PostContent content={content} />
-        {tags && tags.length ? (
-          <div style={{ marginTop: `4rem` }}>
-            <h4>Tags</h4>
-            <ul className="taglist">
-              {tags.map(tag => (
-                <li key={tag + `tag`}>
-                  <Link to={`/tags/${kebabCase(tag)}/`}>{tag}</Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-        ) : null}
-      </div>
-    </Main>
+    <>
+      <Banner />
+      <Main className="section">
+        {helmet || ''}
+        <Box pt="5">
+          <Text as="h1" fontSize={6} mb={2}>
+            {title}
+          </Text>
+          <Text fontSize={4} mb={2}>{description}</Text>
+          <Text fontSize={1} mb={2} color="grey6">{date}</Text>
+          {tags && tags.length ? (
+            <Box mb="4">
+              <TagList tags={tags} />
+            </Box>
+          ) : null}
+          <PostContent content={content} />
+        </Box>
+      </Main>
+    </>
   )
 }
 
@@ -54,24 +55,27 @@ BlogPostTemplate.propTypes = {
 
 const BlogPost = ({ data }) => {
   const { markdownRemark: post } = data
+  const { date, title, description, tags, featuredimage } = post.frontmatter
 
   return (
     <Layout>
       <BlogPostTemplate
         content={post.html}
         contentComponent={HTMLContent}
-        description={post.frontmatter.description}
+        description={description}
+        date={date}
+        featuredimage={featuredimage}
         helmet={
           <Helmet titleTemplate="%s | Blog">
-            <title>{`${post.frontmatter.title}`}</title>
+            <title>{`${title}`}</title>
             <meta
               name="description"
-              content={`${post.frontmatter.description}`}
+              content={`${description}`}
             />
           </Helmet>
         }
-        tags={post.frontmatter.tags}
-        title={post.frontmatter.title}
+        tags={tags}
+        title={title}
       />
     </Layout>
   )

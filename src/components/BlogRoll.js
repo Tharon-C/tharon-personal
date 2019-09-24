@@ -1,24 +1,16 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql, StaticQuery } from 'gatsby'
-import styled from 'styled-components'
-import { space, layout } from 'styled-system'
+import Box from './Box'
 import ArticalCard from './ArticalCard'
 import Flex from './Flex'
 
-const Box = styled.div`
-  ${space}
-  ${layout}
-`
-const BlogRoll = ({ data }) => {
-  const { edges: posts } = data.allMarkdownRemark
+export const BlogRollList = ({ posts }) => {
 
   return (
     <Flex
-      flex
-      center
       flexWrap='wrap'
-      width='980px'
+      maxWidth='1200px'
       m="auto"
     >
       {posts &&
@@ -26,6 +18,7 @@ const BlogRoll = ({ data }) => {
           <Box
             key={post.id}
             p={2}
+            mt={2}
             width={[1, 1, 1/2]}
           >
             <ArticalCard
@@ -38,16 +31,32 @@ const BlogRoll = ({ data }) => {
   )
 }
 
-BlogRoll.propTypes = {
+BlogRollList.propTypes = {
   data: PropTypes.shape({
     allMarkdownRemark: PropTypes.shape({
       edges: PropTypes.array,
     }),
   }),
 }
+// graphql`
+//   query TagsQuery {
+//     site {
+//       siteMetadata {
+//         title
+//       }
+//     }
+//     allMarkdownRemark(limit: 1000) {
+//       group(field: frontmatter___tags) {
+//         fieldValue
+//         totalCount
+//       }
+//     }
+//   }
+// `
 
 export default () => (
   <StaticQuery
+
     query={graphql`
       query BlogRollQuery {
         allMarkdownRemark(
@@ -72,6 +81,6 @@ export default () => (
         }
       }
     `}
-    render={(data, count) => <BlogRoll data={data} count={count} />}
+    render={(data, count) => <BlogRollList posts={data.allMarkdownRemark.edges} count={count} />}
   />
 )
