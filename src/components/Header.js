@@ -5,6 +5,8 @@ import Flex from '../components/Flex'
 import Text from '../components/Text'
 import Link from 'gatsby-link'
 import styled from 'styled-components'
+import { space, layout } from 'styled-system'
+import css from '@styled-system/css'
 
 const Identety = styled(Link)`
   display: flex;
@@ -17,11 +19,11 @@ const Identety = styled(Link)`
 `
 const Nav = styled.nav`
   width: 100%;
-  display: flex;
-  padding: 20px 63px;
-  justify-content: space-between;
+  ${space}
 `;
 const NavLink = styled(Link)`
+  ${layout}
+  display: inline-block;
   padding: 16px;
   height: 50px;
   color: black;
@@ -29,43 +31,61 @@ const NavLink = styled(Link)`
     background: rgba(0,0,0,.05);
   }
 `;
-
-const GitHubLink = styled.a`
-  text-decoration: none;
-  width: 24px;
-  margin: 24px;
+const NavLinkList = styled(Flex)`
+  width: 100%;
+  ${layout}
 `;
 
+const GitHubLink = styled.a(css({
+  textDecoration: 'none',
+  width: '24px',
+  margin: [2 , 2, 3],
+}))
+
 const Header = ({isMain}) => (
-  <Nav px="5">
+  <Nav px={[1, 1, 3]} py={[0, 2]}>
+    <Flex justifyContent="space-between">
     <Identety>
-      <Logo size={ isMain ? '100px' : '75px' } />
+      <Logo mr={2} size={['50px', '50px', (isMain ? '100px' : '75px')]} />
       <div>
-        <Text as="h1" fontSize={ isMain ? 6 : 5 }>
+        <Text as="h1" fontSize={[ 3, 3, (isMain ? 6 : 5)] }>
           Tharon Carlson
         </Text>
         {
-          <Text as="p" fontSize={ isMain ? 3 : 2 }>
+          <Text as="p" fontSize={[1, 1, (isMain ? 3 : 2) ]}>
             Front End Developer / UI Designer
           </Text>
         }
       </div>
     </Identety>
     <Flex alignItems='center'>
+      <NavLinkList display={['none', 'block']}>
+        <NavLink to='./blog'>
+          Articles
+        </NavLink>
+        <NavLink to='./about'>
+          About
+        </NavLink>
+      </NavLinkList>
+      <div>
+        <GitHubLink
+          href="https://github.com/tharon-c/tharon-personal"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img src={github} alt="Github" />
+        </GitHubLink>
+      </div>
+    </Flex>
+    </Flex>
+    <NavLinkList width="200px" mx="auto" mt="2" justifyContent="space-evenly" display={['flex', 'none']}>
       <NavLink to='./blog'>
         Articles
       </NavLink>
       <NavLink to='./about'>
         About
       </NavLink>
-      <GitHubLink
-        href="https://github.com/tharon-c/tharon-personal"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <img src={github} alt="Github" />
-      </GitHubLink>
-    </Flex>
+    </NavLinkList>
   </Nav>
 )
 

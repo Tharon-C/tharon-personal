@@ -1,14 +1,11 @@
-import React from 'react'
+import styled from 'styled-components'
+import css from '@styled-system/css'
 
-const Main = ({ style, ...rest }) => (
-  <div
-    {...rest}
-    style={{
-      margin: '0 auto',
+const Main = styled.div(css({
+      margin: 'auto',
       maxWidth: 980,
-      padding: '48px 16px',
-      ...style,
-    }}
-  />
-)
+      py: [2, 2, 4],
+      px: [2, 2, 3]
+    }))
+
 export default Main

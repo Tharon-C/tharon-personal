@@ -17,8 +17,8 @@ export const BlogRollList = ({ posts }) => {
         posts.map(({ node: post }) => (
           <Box
             key={post.id}
-            p={2}
-            mt={2}
+            p={[1, 1, 2]}
+            mt={[1, 1, 2]}
             width={[1, 1, 1/2]}
           >
             <ArticalCard

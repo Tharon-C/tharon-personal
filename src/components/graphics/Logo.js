@@ -1,16 +1,13 @@
 import React from 'react';
+import styled from 'styled-components'
+import { layout, space } from 'styled-system'
 import LogoBlue from "../../assets/logo-blue.svg"
 
-export default (props) => {
-        const style = {
-            sun: {
-                width: props.size,
-                height: props.size,
-                marginRight: "28px",
-            },
-        };
+const Logo = styled.img`
+  ${layout}
+  ${space}
+`;
 
-        return (
-            <img alt="Tharon Carlson" src={  LogoBlue } style={ style.sun } />
-        );
-    }
+export default props => (
+  <Logo {...props} alt="Tharon Carlson" src={LogoBlue} />
+)

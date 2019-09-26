@@ -22,7 +22,7 @@ export const AboutPageTemplate = ({
       <Banner />
       <Main className="section">
         {helmet || ''}
-          <Text as="h1" fontSize={6} mb={2}>
+          <Text as="h1" fontSize={[5, 5, 6]} mb={2}>
             {title}
           </Text>
           <PostContent content={content} />

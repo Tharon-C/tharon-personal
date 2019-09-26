@@ -53,18 +53,19 @@ export const space = [
   baseUnit * 16,
   baseUnit * 32
 ]
-console.log(space)
+
 export const radii = [
   2,
   6,
   16,
   9000
-];
+]
+
 export const strokeWidth = [
   1,
   3,
   5
-];
+]
 
 export const type = {
   fontFamily: {
@@ -92,13 +93,13 @@ export const type = {
     60,
     96
   ]
-};
+}
 
 export const breakPoints = {
   small: 480,
   medium: 760,
   large: 1200
-};
+}
 
 export const base = {
   baseUnit,
@@ -108,7 +109,7 @@ export const base = {
   strokeWidth,
   ...type,
   breakPoints
-};
+}
 
-export default base;
+export default base
 

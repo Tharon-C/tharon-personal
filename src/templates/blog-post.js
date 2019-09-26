@@ -25,12 +25,12 @@ export const BlogPostTemplate = ({
   return (
     <>
       <Banner />
-      <Main className="section">
+      <Main>
         {helmet || ''}
-        <Text as="h1" fontSize={6} mb={2}>
+        <Text as="h1" fontSize={[5, 5, 6]} mb={2}>
           {title}
         </Text>
-        <Text fontSize={4} mb={2}>{description}</Text>
+        <Text fontSize={[3, 3, 4]} lineHeight="1.3" mb={2}>{description}</Text>
         <Text fontSize={1} mb={2} color="grey6">{date}</Text>
         {tags && tags.length ? (
           <Box mb="4">

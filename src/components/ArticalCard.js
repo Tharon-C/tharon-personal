@@ -11,7 +11,7 @@ const Card = styled.div`
 `
 
 const ArticalCard = ({post, ...rest}) => (
-  <Card { ...rest } p={2} as="article">
+  <Card { ...rest } p={[1, 1, 2]} as="article">
     <header>
       <Link
         to={post.fields.slug}
