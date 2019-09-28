@@ -6,6 +6,8 @@ import Layout from '../../components/Layout'
 import Banner from '../../components/Banner'
 import Box from '../../components/Box'
 import Text from '../../components/Text'
+import Main from '../../components/Main'
+import Flex from '../../components/Flex'
 
 
 const TagsPage = ({
@@ -19,23 +21,28 @@ const TagsPage = ({
 <Layout>
   <Helmet title={`Tags | ${title}`} />
   <Banner />
-  <Box
-    as="section"
-    flexWrap='wrap'
-    maxWidth='1200px'
-    m="auto"
-  >
-    <Text as="h1" fontSize="4" pt="4">Tags</Text>
+  <Main>
+    <Text as="h1" fontSize="4">Tags</Text>
     <Box as="ul" p="0">
       {group.map(tag => (
-        <Box as="li" key={tag.fieldValue} py="1" style={{listStyle: "none"}}>
-          <Text
-            color="black"
+        <Box
+          as="li"
+          maxWidth="250px"
+          key={tag.fieldValue}
+          style={{listStyle: "none"}}
+        >
+          <Flex
             as={Link}
-            fontSize={4}
+            py="1"
+            justifyContent="space-between"
             to={`/tags/${kebabCase(tag.fieldValue)}/`}
           >
+          <Text
+            color="black"
+            fontSize={4}
+          >
             {tag.fieldValue}
+            </Text>
             <Box
               display="inline-block"
               borderRadius={999}
@@ -48,11 +55,11 @@ const TagsPage = ({
                 {tag.totalCount}
               </Text>
             </Box>
-          </Text>
+          </Flex>
         </Box>
       ))}
     </Box>
-  </Box>
+  </Main>
 </Layout>
 )
 

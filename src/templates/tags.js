@@ -4,8 +4,8 @@ import { Link, graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import { BlogRollList } from '../components/BlogRoll'
 import Banner from '../components/Banner'
-import Box from '../components/Box'
 import Text from '../components/Text'
+import Main from '../components/Main'
 
 class TagRoute extends React.Component {
   render() {
@@ -21,16 +21,10 @@ class TagRoute extends React.Component {
       <Layout>
         <Helmet title={`${tag} | ${title}`} />
         <Banner />
-        <Box
-          as="section"
-          flexWrap='wrap'
-          maxWidth='1200px'
-          m="auto"
-        >
+        <Main>
           <Text
             as="h1"
             display="block"
-            pt={3}
             mb={2}
             fontSize={3}
           >
@@ -38,8 +32,7 @@ class TagRoute extends React.Component {
           </Text>
           <Text color="black" as={Link} to="/tags/">Browse all tags</Text>
           <BlogRollList posts={posts} />
-
-        </Box>
+        </Main>
       </Layout>
     )
   }

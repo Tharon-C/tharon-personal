@@ -20,7 +20,7 @@ export const AboutPageTemplate = ({
   return (
     <>
       <Banner />
-      <Main className="section">
+      <Main>
         {helmet || ''}
           <Text as="h1" fontSize={[5, 5, 6]} mb={2}>
             {title}
