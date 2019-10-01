@@ -1,4 +1,8 @@
 import React from 'react'
+import styled from 'styled-components'
+import css from '@styled-system/css'
+import themeGet from '@styled-system/theme-get'
+import color from 'color'
 import { kebabCase } from 'lodash'
 import Helmet from 'react-helmet'
 import { Link, graphql } from 'gatsby'
@@ -7,8 +11,31 @@ import Banner from '../../components/Banner'
 import Box from '../../components/Box'
 import Text from '../../components/Text'
 import Main from '../../components/Main'
-import Flex from '../../components/Flex'
 
+const TagLink = styled(Box)`
+${css({
+  display: 'flex',
+  justifyContent: 'space-between',
+  py: 1,
+  px: 2
+})}
+&:hover {
+  background-color: ${props =>
+    color(themeGet('colors.tertiary')(props))
+    .lighten(.3)
+    .hex()
+  }
+}`
+
+const Pill = styled(Box)(css({
+  display: "inline-block",
+  borderRadius: 999,
+  color: "white",
+  ml: 1,
+  p: " 4px 8px",
+  bg: "secondary",
+  fontSize: 2
+}))
 
 const TagsPage = ({
   data: {
@@ -31,10 +58,8 @@ const TagsPage = ({
           key={tag.fieldValue}
           style={{listStyle: "none"}}
         >
-          <Flex
+          <TagLink
             as={Link}
-            py="1"
-            justifyContent="space-between"
             to={`/tags/${kebabCase(tag.fieldValue)}/`}
           >
           <Text
@@ -43,19 +68,10 @@ const TagsPage = ({
           >
             {tag.fieldValue}
             </Text>
-            <Box
-              display="inline-block"
-              borderRadius={999}
-              color="white"
-              ml={1}
-              p=" 4px 8px"
-              bg="secondary"
-            >
-              <Text fontSize={2}>
-                {tag.totalCount}
-              </Text>
-            </Box>
-          </Flex>
+            <Pill>
+              {tag.totalCount}
+            </Pill>
+          </TagLink>
         </Box>
       ))}
     </Box>

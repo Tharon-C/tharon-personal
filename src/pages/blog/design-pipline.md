@@ -6,6 +6,7 @@ featuredpost: false
 description: How and why we developed a design pipeline at Cyverse
 tags:
   - work
+  - design
 ---
 Our product started as one developer's proof of concept. Then a few fast moving developers worked to get it functional enough to present to the NSF. Eventually it was a funded project but it's rapid development cycle had become part of the culture.
 
