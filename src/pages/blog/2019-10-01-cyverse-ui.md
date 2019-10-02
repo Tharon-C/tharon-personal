@@ -17,19 +17,31 @@ Since we had no formal designer role we wanted a way to steer design systematica
 
 ## A Design System
 
-A design system is like any other system in that it is a collection of parts that work together in a interconnected whole. It is a set of principles and procedures according to which a framework can be built. Programmers work well within systems or frameworks so without a design background these principles can be applied to common patterns getting us a long way without having to design every screen directly
+A design system is like any other system in that it is a collection of parts that work together in a interconnected whole. It is a set of principles and procedures according to which a framework can be built. Programmers work well within systems or frameworks so without a design background these principles can be applied to common patterns getting us a long way without having to design every screen directly. By this we focus on designing the system instead.
 
 ### Design Patterns
 
+Most features can be broken down or abstracted to common patterns. By recognizing these patterns and formalizing them into design patterns. We can approach new features by determining what patterns they constitute. These patterns are built on the design system acting as the underlying structure.
+
 ### Material Design
+
+A design system needs good documentation and although not perfect Material Design is comprehensive. We made a decision early on to leverage this as a starting point. This let us focus on designing and documenting patterns that are specific to our product.
 
 ## Component Library
 
+A component library is the way we can capture, document and consume these patterns. They are code and versioned. They are a source of truth and give us a consistent UI that is maintainable.  
+
 ### Atomic Design
+
+Atomic design is a term coined by Brad Frost. The idea to break larger components into smaller more composable components. Rather than have a input with a label and a radio button with a label the label is it's own component and used to make both. This composability helps with maintainability and consistency.    
 
 ### Material UI
 
+Just like Material Design, Material UI allowed us to focus, by providing a general well documented base to work from. Not only does Material UI follow Material Design as it's pattern library it is also atomic and as a solid theming system.
+
 ### CSS vs JSS
+
+
 ### Restraint vs Constraint
 ### Tooling
 ## CyVerse UI 
