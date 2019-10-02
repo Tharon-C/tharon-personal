@@ -15,7 +15,9 @@ At CyVerse on the Atmosphere team, we were struggling with the typical problems 
 
 Since we had no formal designer role we wanted a way to steer design systematically. I would assume role of designer part time for new features and establish design patterns that could be followed by other developers to be broadly applied to existing features as a first pass. This would allow us to move quickly to improve the app more holistically or generally without adding to the problem and then back fill with more intentional design starting with major offenders first.
 
-## Design System
+## A Design System
+
+A design system is like any other system in that it is a collection of parts that work together in a interconnected whole. It is a set of principles and procedures according to which a framework can be built. Programmers work well within systems or frameworks so without a design background these principles can be applied to common patterns getting us a long way without having to design every screen directly
 
 ### Design Patterns
 
