@@ -1,10 +1,12 @@
 import React from 'react';
 import Trees from './Trees';
 import Dude from './Dude.js';
+import Clouds from './Clouds';
 
 export default (props) => {
   return (
-            <div style={props.styleWrapper}>
+            <div style={{ ...props.styleWrapper, paddingTop: '10vh' }}>
+                <Clouds style={{ position: "absolute", top: 0, zIndex: -1 }}/>
                 <svg id="Layer_1" viewBox="0 0 601.37 488.56" data-name="Layer 1">
                     <polygon style={{"fill":"#aee28f"}} points="0 185.54 348.85 185.54 184.72 421.64 0 185.54"/>
                     <polygon style={{"opacity":"0.22"}} points="154.29 255.08 184.72 421.64 348.85 185.54 154.29 255.08"/>

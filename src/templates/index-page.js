@@ -22,8 +22,7 @@ export const IndexPageTemplate = () => (
           minWidth: '400px',
         }}
       />
-      <Clouds style={{position: "fixed", top: "100px", left: 0 }}/>
-      <Cabin styleWrapper={{ position: "fixed", top: "200px", maxWidth: '800px', width: '100%', right: 0, left: 0, margin: 'auto' }} />
+      <Cabin styleWrapper={{ position: "fixed", top: "100px", maxWidth: '800px', width: '100%', right: 0, left: 0, margin: 'auto' }} />
     </Main>
   )
 
