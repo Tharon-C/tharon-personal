@@ -1,21 +1,25 @@
 import React, { Component } from 'react';
+import styled from 'styled-components';
 import { TimelineMax, Power0 } from "gsap";
 import clouds from '../../assets/Clouds.svg';
 
-const style = {
-  clouds: {
+const Wrapper = styled.div({
     overflow: 'hidden',
-    width: '800px',
-  },
-  overlay: {
-    background: "linear-gradient(to right, rgba(209,242,254,1) 0%,rgba(209,242,254,0) 25%,rgba(209,242,254,0) 85%,rgba(209,242,254,1) 100%",
-    position: 'absolute',
-    hight: '100%',
-    width: '100%',
-    top: 0,
-    bottom: 0
-  }
-}
+    width: '100%'
+});
+
+const CloudImg = styled.img({
+  width: '200%'
+});
+
+const Overlay = styled.div`
+  background: linear-gradient(to right, rgba(209,242,254,1) 0%,rgba(209,242,254,0) 20%,rgba(209,242,254,0) 85%,rgba(209,242,254,1) 100%);
+  position: absolute;
+  hight: 100%;
+  width: 100%;
+  top: 0;
+  bottom: 0;
+`;
 
 class Clouds extends Component {
   constructor(props){
@@ -37,10 +41,10 @@ class Clouds extends Component {
   }
   render() {
     return (
-      <div ref={wrapper => this.wrapper = wrapper} style={{ ...style.clouds, ...this.props.style }}>
-        <img style={{ width: '200%'}} ref={clouds => this.clouds = clouds} src={clouds} />
-        <div style={style.overlay} />
-      </div>
+      <Wrapper {...this.props} ref={wrapper => this.wrapper = wrapper}>
+        <CloudImg ref={clouds => this.clouds = clouds} src={clouds} />
+        <Overlay />
+      </Wrapper>
     )
   }
 }

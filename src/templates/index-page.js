@@ -5,7 +5,6 @@ import 'prismjs/themes/prism-tomorrow.css'
 import Cabin from '../components/graphics/Cabin'
 import Main from '../components/Main'
 import ArchiveLinks from "../components/ArchiveLinks"
-import Clouds from '../components/graphics/Clouds'
 import Layout from '../components/Layout'
 
 export const IndexPageTemplate = () => (
