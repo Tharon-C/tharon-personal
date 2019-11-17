@@ -6,13 +6,13 @@ import Clouds from './Clouds';
 
 const StyledClouds = styled(Clouds)({
   position: "absolute",
-  top: 0,
+  top: 10,
   zIndex: -1
 });
 
 export default (props) => {
   return (
-    <div style={{ ...props.styleWrapper, paddingTop: '10vh' }}>
+    <div style={{ ...props.styleWrapper,  paddingRight: "10px",  paddingLeft: "10px", paddingTop: '10vh' }}>
       <StyledClouds />
       <svg id="Layer_1" viewBox="0 0 601.37 488.56" data-name="Layer 1">
         <polygon style={{"fill":"#aee28f"}} points="0 185.54 348.85 185.54 184.72 421.64 0 185.54"/>

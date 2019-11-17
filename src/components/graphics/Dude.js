@@ -8,32 +8,37 @@ class Dude extends React.Component {
     this.armR = null;
     this.armUR = null;
     this.head = null;
-    this.TimeLine = null;
-    this.TimeLine2 = null;
-    this.TimLine3 = null;
-    this.TimeLine4 = null;
+
+    this.LeftArmTL = null;
+    this.RightArmTL2 = null;
+    this.HeadTL = null;
   }
   componentDidMount() {
-    this.TimeLine = new TimelineMax({repeat: -1})
-    .to(this.arm, .5, { rotation: -5 })
+    this.LeftArmTL = new TimelineMax({repeat: -1})
+    .to(this.arm, .3, { rotation: -5 })
     .yoyo(true);
 
-    this.TimeLine2 = new TimelineMax({repeat: -1})
-    .to(this.armR, 4, { x: 0 })
-    .to(this.armR, 1, { x: -25 })
-    .to(this.armR, 4, { x: -25 })
-    .to(this.armR, 2, { x: 4 })
-    .yoyo(true);
-
-    this.TimeLine3 = new TimelineMax({repeat: -1})
+    this.RightArmTL = new TimelineMax({repeat: -1})
     .set(this.armUR, { transformOrigin: "right"})
-    .to(this.armUR, 4, { rotation: 0 })
-    .to(this.armUR, 1, { rotation: 7 })
-    .to(this.armUR, 4, { rotation: 7 })
-    .to(this.armUR, 2, { rotation: -2 })
+    .set(this.handR, { transformOrigin: 'center', rotation: -7, x: 2})
+
+    .to(this.armR, 4, { x: 0 }, "rightArm1")
+    .to(this.armUR, 4, { rotation: 0 }, "rightArm1")
+
+    .to(this.armR, 1, { x: -25 }, "rightArm2")
+    .to(this.armUR, 1, { rotation: 7 }, "rightArm2")
+    .to(this.handR, 1, { y: 2 }, "rightArm2")
+
+    .to(this.armR, 4, { x: -25 }, "rightArm3")
+    .to(this.armUR, 4, { rotation: 7 }, "rightArm3")
+    .to(this.handR, 4, { y: 2 }, "rightArm3")
+
+    .to(this.armR, 2, { x: 4 }, "rightArm4")
+    .to(this.armUR, 2, { rotation: -2 }, "rightArm4")
+    .to(this.handR, 2, { y: -7 }, "rightArm4")
     .yoyo(true);
 
-    this.TimeLine4 = new TimelineMax({repeat: -1})
+    this.HeadTL = new TimelineMax({repeat: -1})
     .set(this.head, { transformOrigin: "bottom"})
     .to(this.head, 3, { rotation: -15 })
     .to(this.head, 5, { rotation: 0 })
@@ -73,7 +78,7 @@ class Dude extends React.Component {
         </g>
         <g ref={ arm => { this.armR = arm }}>
           <rect height="162.62" style={{"fill":"#c96728"}} width="53.24" rx="26.62" ry="26.62" transform="translate(421.68 -342.83) rotate(42.53)" x="624.64" y="288.99"/>
-          <rect height="65.09" style={{"fill":"#eabc89"}} width="65.09" rx="18.06" ry="18.06" transform="translate(312.99 -376.31) rotate(36.93)" x="687.5" y="248.02"/>
+          <rect ref={ hand => { this.handR = hand }} height="65.09" style={{"fill":"#eabc89"}} width="65.09" rx="18.06" ry="18.06" transform="translate(312.99 -376.31) rotate(36.93)" x="687.5" y="248.02"/>
         </g>
         <rect height="231.08" style={{"fill":"#b77e34"}} width="21.44" x="68.85" y="574.57"/>
         <rect height="231.08" style={{"fill":"#b77e34"}} width="21.44" x="916.48" y="574.57"/>
